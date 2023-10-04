@@ -1,5 +1,5 @@
 //
-//  BaseTabView.swift
+//  MainTabView.swift
 //  ThreadsSwiftUI
 //
 //  Created by パクギョンソク on 2023/10/04.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BaseTabView: View {
+struct MainTabView: View {
     
     enum TabType: Int {
         case feed = 0
@@ -73,5 +73,5 @@ struct BaseTabView: View {
 }
 
 #Preview {
-    BaseTabView()
+    MainTabView()
 }
