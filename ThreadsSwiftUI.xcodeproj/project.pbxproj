@@ -60,7 +60,6 @@
 		FF47314C2ACD933800C4D8BE = {
 			isa = PBXGroup;
 			children = (
-				FF47317E2ACD9D9A00C4D8BE /* GoogleService-Info.plist */,
 				FF4731572ACD933800C4D8BE /* ThreadsSwiftUI */,
 				FF4731562ACD933800C4D8BE /* Products */,
 			);
@@ -77,6 +76,7 @@
 		FF4731572ACD933800C4D8BE /* ThreadsSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				FF47317E2ACD9D9A00C4D8BE /* GoogleService-Info.plist */,
 				FF4731692ACD94CF00C4D8BE /* Core */,
 				FF47315A2ACD933800C4D8BE /* ContentView.swift */,
 				FF4731582ACD933800C4D8BE /* ThreadsSwiftUIApp.swift */,
