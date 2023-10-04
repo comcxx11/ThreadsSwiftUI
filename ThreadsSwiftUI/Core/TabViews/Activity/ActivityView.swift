@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ActivityView.swift
 //  ThreadsSwiftUI
 //
 //  Created by パクギョンソク on 2023/10/04.
@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ActivityView: View {
     var body: some View {
-        
-        BaseTabView()
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    ContentView()
+    ActivityView()
 }
