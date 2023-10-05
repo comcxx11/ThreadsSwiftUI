@@ -53,6 +53,11 @@
 		FF4731DA2ACDB56300C4D8BE /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4731D92ACDB56300C4D8BE /* LoginModel.swift */; };
 		FF4731DE2ACDB6DE00C4D8BE /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4731DD2ACDB6DE00C4D8BE /* TextFieldModifier.swift */; };
 		FF4731E12ACDB91400C4D8BE /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4731E02ACDB91400C4D8BE /* AuthButton.swift */; };
+		FF4C5D2F2ACEBA2B003F3E90 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C5D2E2ACEBA2B003F3E90 /* RegisterView.swift */; };
+		FF4C5D312ACEBA3A003F3E90 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C5D302ACEBA3A003F3E90 /* RegisterViewModel.swift */; };
+		FF4C5D332ACEBA4A003F3E90 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C5D322ACEBA4A003F3E90 /* RegisterModel.swift */; };
+		FF4C5D352ACEC434003F3E90 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C5D342ACEC434003F3E90 /* UserService.swift */; };
+		FF4C5D382ACEC560003F3E90 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C5D372ACEC560003F3E90 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +82,11 @@
 		FF4731D92ACDB56300C4D8BE /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		FF4731DD2ACDB6DE00C4D8BE /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		FF4731E02ACDB91400C4D8BE /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		FF4C5D2E2ACEBA2B003F3E90 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		FF4C5D302ACEBA3A003F3E90 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		FF4C5D322ACEBA4A003F3E90 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		FF4C5D342ACEC434003F3E90 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FF4C5D372ACEC560003F3E90 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +147,7 @@
 		FF4731572ACD933800C4D8BE /* ThreadsSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				FF4C5D362ACEC557003F3E90 /* Model */,
 				FF4731DB2ACDB6AC00C4D8BE /* Utils */,
 				FF4731D52ACDB40B00C4D8BE /* Extensions */,
 				FF4731692ACD94CF00C4D8BE /* Core */,
@@ -234,6 +245,7 @@
 			children = (
 				FF4731992ACDA49600C4D8BE /* Service */,
 				FF47318E2ACDA27200C4D8BE /* Login */,
+				FF4C5D2D2ACEBA04003F3E90 /* Register */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -259,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				FF47319A2ACDA4B200C4D8BE /* AuthService.swift */,
+				FF4C5D342ACEC434003F3E90 /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -294,6 +307,24 @@
 				FF4731E02ACDB91400C4D8BE /* AuthButton.swift */,
 			);
 			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		FF4C5D2D2ACEBA04003F3E90 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				FF4C5D2E2ACEBA2B003F3E90 /* RegisterView.swift */,
+				FF4C5D302ACEBA3A003F3E90 /* RegisterViewModel.swift */,
+				FF4C5D322ACEBA4A003F3E90 /* RegisterModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		FF4C5D362ACEC557003F3E90 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF4C5D372ACEC560003F3E90 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,6 +433,7 @@
 				FF4731D82ACDB43500C4D8BE /* View.swift in Sources */,
 				FF4731DA2ACDB56300C4D8BE /* LoginModel.swift in Sources */,
 				FF4731772ACD999D00C4D8BE /* UserProfileView.swift in Sources */,
+				FF4C5D312ACEBA3A003F3E90 /* RegisterViewModel.swift in Sources */,
 				FF4731702ACD991E00C4D8BE /* FeedView.swift in Sources */,
 				FF47315B2ACD933800C4D8BE /* ContentView.swift in Sources */,
 				FF4731932ACDA2C200C4D8BE /* LoginView.swift in Sources */,
@@ -413,8 +445,12 @@
 				FF4731592ACD933800C4D8BE /* ThreadsSwiftUIApp.swift in Sources */,
 				FF4731D42ACDB33100C4D8BE /* LoginViewModel.swift in Sources */,
 				FF47317B2ACD99B500C4D8BE /* CreateThreadView.swift in Sources */,
+				FF4C5D2F2ACEBA2B003F3E90 /* RegisterView.swift in Sources */,
+				FF4C5D352ACEC434003F3E90 /* UserService.swift in Sources */,
 				FF47317D2ACD99C400C4D8BE /* ExploreView.swift in Sources */,
+				FF4C5D332ACEBA4A003F3E90 /* RegisterModel.swift in Sources */,
 				FF4731792ACD99A700C4D8BE /* ActivityView.swift in Sources */,
+				FF4C5D382ACEC560003F3E90 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

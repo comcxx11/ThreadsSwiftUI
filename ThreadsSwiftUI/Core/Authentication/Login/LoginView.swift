@@ -67,7 +67,7 @@ extension LoginView {
     
     var createAccountButton: some View {
         NavigationLink {
-            Text("RegistrationView")
+            RegisterView()
         } label: {
             HStack(spacing: 3) {
                 Text("Don't have an account")
