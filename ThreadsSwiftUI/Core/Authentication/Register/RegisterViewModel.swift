@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 class RegisterViewModel: ObservableObject {
     @Published var model = RegisterModel()

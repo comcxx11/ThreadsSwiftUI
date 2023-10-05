@@ -32,11 +32,6 @@ struct RegisterView: View {
                     }
                 }
                 .padding()
-                .alert(isPresented: $viewModel.showAlert, content: {
-                    Alert(title: Text("Error"),
-                          message: Text(viewModel.error?.localizedDescription ?? "Unknown Error"),
-                          dismissButton: .default(Text("OK"), action: { viewModel.alertOkButtonTapped() }))
-                })
                 
                 Spacer()
                 
@@ -44,6 +39,11 @@ struct RegisterView: View {
                 
                 goLoginButton
             }
+            .alert(isPresented: $viewModel.showAlert, content: {
+                Alert(title: Text("Error"),
+                      message: Text(viewModel.error?.localizedDescription ?? "Unknown Error"),
+                      dismissButton: .default(Text("OK"), action: { viewModel.alertOkButtonTapped() }))
+            })
         }
     }
 }

@@ -29,7 +29,9 @@ struct LoginView: View {
                 forgotPassword
                 
                 AuthButton(buttonText: "Login", action: {
-                    // TODO: Login..
+                    Task {
+                        try await viewModel.login()
+                    }
                 })
                 
                 Spacer()
@@ -38,6 +40,11 @@ struct LoginView: View {
                 
                 createAccountButton
             }
+            .alert(isPresented: $viewModel.showAlert, content: {
+                Alert(title: Text("Error"),
+                      message: Text(viewModel.error?.localizedDescription ?? "Unknown Error"),
+                      dismissButton: .default(Text("OK"), action: { viewModel.alertOkButtonTapped() }))
+            })
         }
     }
 }
@@ -68,6 +75,7 @@ extension LoginView {
     var createAccountButton: some View {
         NavigationLink {
             RegisterView()
+                .navigationBarBackButtonHidden()
         } label: {
             HStack(spacing: 3) {
                 Text("Don't have an account")

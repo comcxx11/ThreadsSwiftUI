@@ -22,6 +22,10 @@ final class UserService {
         }
     }
     
+    func reset() {
+        currentUser = nil
+    }
+    
     @MainActor
     func fetchCurrentUser() async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }

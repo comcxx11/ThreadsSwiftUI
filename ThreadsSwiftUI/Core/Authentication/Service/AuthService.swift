@@ -20,11 +20,17 @@ final class AuthService {
     }
     
     func signout() {
+        try? Auth.auth().signOut()
         userSession = nil
+        UserService.shared.reset()
     }
     
-    func login(withEmail email: String, password: String) {
-        
+    @MainActor
+    func login(withEmail email: String, password: String) async throws  {
+        let result = try await Auth.auth().signIn(withEmail: email, password: password)
+        self.userSession = result.user
+        // ユーザーデータを取得
+        try await UserService.shared.fetchCurrentUser()
     }
     
     @MainActor
