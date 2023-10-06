@@ -16,7 +16,7 @@ struct ThreadCell: View {
         VStack {
             
             HStack(alignment: .top, spacing: 12) {
-                userIcon
+                CircluarProfileImageView()
 
                 VStack(alignment: .leading, spacing: 0) {
                     
@@ -43,13 +43,13 @@ struct ThreadCell: View {
                     Text("Now Available New Tesla Model3.")
                         .font(.callout)
                     
-                    Image("model3")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 250)
-                        .cornerRadius(10)
-                        .padding(.top, 8)
+//                    Image("model3")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(maxWidth: .infinity)
+//                        .frame(height: 250)
+//                        .cornerRadius(10)
+//                        .padding(.top, 8)
                     
                     HStack(spacing: 16) {
                         likeButton
@@ -74,30 +74,6 @@ struct ThreadCell: View {
 }
 
 extension ThreadCell {
-    
-    var userIcon: some View {
-        Image("elon")
-            .resizable()
-            .scaledToFill()
-            .frame(width: 40, height: 40)
-            .clipShape(Circle())
-            .overlay(
-                // TODO: 未フォローの場合だけ表示
-                pulsIcon
-            )
-    }
-    
-    var pulsIcon: some View {
-        Image(systemName: "plus")
-            .font(.caption)
-            .fontWeight(.semibold)
-            .foregroundColor(.white)
-            .padding(.all, 5)
-            .background(Color.black)
-            .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-            .offset(x: 13, y: 13)
-    }
     
     var optionsButton: some View {
         Button {
