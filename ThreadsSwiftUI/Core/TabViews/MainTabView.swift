@@ -53,7 +53,7 @@ struct MainTabView: View {
                 .onAppear { selectedTab = .activity }
                 .tag(TabType.activity)
             
-            UserProfileView()
+            CurrentUserProfileView()
                 .tabItem {
                     Image(systemName: selectedTab == .profile ? "person.fill" : "person")
                 }

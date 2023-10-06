@@ -53,6 +53,4 @@ final class AuthService {
         // 完了後、UserServiceにセット
         UserService.shared.currentUser = user
     }
-    
-    
 }

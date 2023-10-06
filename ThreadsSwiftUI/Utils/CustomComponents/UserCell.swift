@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserCell: View {
     
-    // let user: User
+    let user: User
     
     var body: some View {
         VStack(spacing: 0) {
@@ -20,7 +20,7 @@ struct UserCell: View {
                 VStack(alignment: .leading, spacing: 0) {
                     
                     HStack(spacing: 0) {
-                        Text("Elon Musk")
+                        Text(user.username)
                             .font(.callout)
                             .fontWeight(.semibold)
                             .foregroundStyle(.black)
@@ -34,7 +34,7 @@ struct UserCell: View {
                         Spacer(minLength: 0)
                     }
                    
-                    Text("Elon Reeve Musk")
+                    Text(user.fullname)
                         .font(.callout)
                         .foregroundStyle(.gray)
                
@@ -68,5 +68,5 @@ struct UserCell: View {
 }
 
 #Preview {
-    UserCell()
+    UserCell(user: PreviewProvider.shared.user)
 }

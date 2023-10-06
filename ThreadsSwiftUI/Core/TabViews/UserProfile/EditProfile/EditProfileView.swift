@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditProfileView: View {
     
     @State private var bio = ""
     @State private var link = ""
     @State private var isPrivateProfile = false
-
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: CurrentUserProfileViewModel
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -30,7 +33,19 @@ struct EditProfileView: View {
                         
                         Spacer()
                         
-                        CircluarProfileImageView(dummyImage: "johnnyfpv", showFollowButton: false)
+                        PhotosPicker(selection: $viewModel.selectedItem) {
+                            // 初期表示は「selectedItem == nil」なのでCircluarが表示され
+                            // イメージをタップすると PhotoPickerが起動する仕組み
+                            if let image = viewModel.profileImage {
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 40, height: 40)
+                                    .clipShape(Circle())
+                            } else {
+                                CircluarProfileImageView(showFollowButton: false)
+                            }
+                        }
                     }
                     
                     Divider()
@@ -49,7 +64,7 @@ struct EditProfileView: View {
                         Text("リンク")
                             .fontWeight(.semibold)
         
-                        TextField("+ リンクを追加", text: $link, axis: .vertical)
+                        TextField("+リンクを追加", text: $link, axis: .vertical)
 
                     }
                     
@@ -72,7 +87,7 @@ struct EditProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("キャンセル") {
-                        
+                        dismiss()
                     }
                     .font(.subheadline)
                     .foregroundColor(.black)
@@ -87,8 +102,6 @@ struct EditProfileView: View {
                     .foregroundColor(Color(.systemBlue))
                 }
             }
-            
-            
         }
     }
 }

@@ -11,5 +11,16 @@ final class ExploreViewModel: ObservableObject {
     
     @Published var searchText: String = ""
     
-    @Published var users: [User] = [.init(id: "id1", fullname: "Elon Musk", email: "elon.musk@x.com", username: "Elon Musk")]
+    @Published var users: [User] = []
+    
+    init() {
+        Task {
+            try await fetchAllUsers()
+        }
+    }
+    
+    @MainActor
+    private func fetchAllUsers() async throws {
+        self.users = try await UserService.shared.fetchAllUsers()
+    }
 }
