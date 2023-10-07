@@ -18,9 +18,14 @@ struct FeedRecommendView: View {
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
-            ForEach(1...5, id:\.self) { _ in
-                ThreadCell()
+            LazyVStack {
+                ForEach(viewModel.threads) { thread in
+                    ThreadCell(thread: thread)
+                }
             }
+        }
+        .refreshable {
+            Task { try await viewModel.fetchThreads() }
         }
     }
 }

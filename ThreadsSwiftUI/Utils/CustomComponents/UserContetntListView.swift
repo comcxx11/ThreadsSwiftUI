@@ -55,7 +55,7 @@ struct UserContetntListView: View {
             LazyVStack {
                 ScrollView(.vertical, showsIndicators: false) {
                     ForEach(1...5, id:\.self) { _ in
-                        ThreadCell()
+                        ThreadCell(thread: PreviewProvider.shared.thread)
                     }
                 }
             }

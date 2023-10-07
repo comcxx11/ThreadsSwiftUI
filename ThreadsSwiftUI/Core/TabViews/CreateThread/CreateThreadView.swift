@@ -62,7 +62,10 @@ struct CreateThreadView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("投稿する") {
-                        
+                        Task {
+                            try await viewModel.uploadThread()
+                            dismiss()
+                        }
                     }
                     .opacity(viewModel.caption.isEmpty ? 0.5 : 1)
                     .disabled(viewModel.caption.isEmpty)

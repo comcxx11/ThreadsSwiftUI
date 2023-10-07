@@ -31,8 +31,14 @@ enum ProfileImageSize {
 struct CircluarProfileImageView: View {
     
     var user: User?
-    var size: ProfileImageSize = .small
+    var size: ProfileImageSize
     var showFollowIcon = false
+    
+    init(user: User?, size: ProfileImageSize = .small) {
+        self.user = user
+        self.size = size
+    }
+    
     var body: some View {
         
         Group {
@@ -66,5 +72,5 @@ struct CircluarProfileImageView: View {
 }
 
 #Preview {
-    CircluarProfileImageView()
+    CircluarProfileImageView(user: PreviewProvider.shared.user)
 }

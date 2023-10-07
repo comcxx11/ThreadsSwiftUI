@@ -9,19 +9,18 @@ import SwiftUI
 
 struct ThreadCell: View {
     
-    // TODO: Thread model必要
-    // let thread: Thread
+     let thread: Thread
     
     var body: some View {
         VStack {
             
             HStack(alignment: .top, spacing: 12) {
-                CircluarProfileImageView()
+                CircluarProfileImageView(user: thread.user)
 
                 VStack(alignment: .leading, spacing: 0) {
                     
                     HStack(spacing: 0) {
-                        Text("Elon Musk")
+                        Text(thread.user?.username ?? "")
                             .font(.callout)
                             .fontWeight(.semibold)
                         Image(systemName: "checkmark.seal.fill")
@@ -40,7 +39,7 @@ struct ThreadCell: View {
                             .padding(.leading, 4)
                     }
                    
-                    Text("Now Available New Tesla Model3.")
+                    Text(thread.caption)
                         .font(.callout)
                     
 //                    Image("model3")
@@ -119,6 +118,6 @@ extension ThreadCell {
 }
 
 #Preview {
-    ThreadCell()
+    ThreadCell(thread: PreviewProvider.shared.thread)
         .previewLayout(.sizeThatFits)
 }

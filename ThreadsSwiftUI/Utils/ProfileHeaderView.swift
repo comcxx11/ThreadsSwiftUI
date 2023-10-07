@@ -37,7 +37,8 @@ struct ProfileHeaderView: View {
             }
             
             Spacer()
-            CircluarProfileImageView(user: user)
+            
+            CircluarProfileImageView(user: user, size: .medium)
         }
     }
 }

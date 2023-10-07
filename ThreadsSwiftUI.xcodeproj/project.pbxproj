@@ -80,6 +80,8 @@
 		FF4C5D642AD12C73003F3E90 /* UIimage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C5D632AD12C73003F3E90 /* UIimage+Extensions.swift */; };
 		FF4C5D672AD1323F003F3E90 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF4C5D662AD1323F003F3E90 /* Kingfisher */; };
 		FF4C5D692AD1350C003F3E90 /* CreateThreadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C5D682AD1350C003F3E90 /* CreateThreadViewModel.swift */; };
+		FF4C5D6B2AD16E76003F3E90 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C5D6A2AD16E76003F3E90 /* Thread.swift */; };
+		FF4C5D6D2AD16F93003F3E90 /* ThreadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C5D6C2AD16F93003F3E90 /* ThreadService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +132,8 @@
 		FF4C5D612AD12275003F3E90 /* ImageUploder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploder.swift; sourceTree = "<group>"; };
 		FF4C5D632AD12C73003F3E90 /* UIimage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+Extensions.swift"; sourceTree = "<group>"; };
 		FF4C5D682AD1350C003F3E90 /* CreateThreadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateThreadViewModel.swift; sourceTree = "<group>"; };
+		FF4C5D6A2AD16E76003F3E90 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		FF4C5D6C2AD16F93003F3E90 /* ThreadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +333,7 @@
 				FF47319A2ACDA4B200C4D8BE /* AuthService.swift */,
 				FF4C5D342ACEC434003F3E90 /* UserService.swift */,
 				FF4C5D612AD12275003F3E90 /* ImageUploder.swift */,
+				FF4C5D6C2AD16F93003F3E90 /* ThreadService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				FF4C5D372ACEC560003F3E90 /* User.swift */,
+				FF4C5D6A2AD16E76003F3E90 /* Thread.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -549,12 +555,14 @@
 				FF4C5D472ACF8852003F3E90 /* ExploreViewModel.swift in Sources */,
 				FF4C5D2F2ACEBA2B003F3E90 /* RegisterView.swift in Sources */,
 				FF4C5D3A2ACEE0DD003F3E90 /* FeedViewModel.swift in Sources */,
+				FF4C5D6B2AD16E76003F3E90 /* Thread.swift in Sources */,
 				FF4C5D352ACEC434003F3E90 /* UserService.swift in Sources */,
 				FF4C5D5A2AD0355D003F3E90 /* ProfileHeaderView.swift in Sources */,
 				FF47317D2ACD99C400C4D8BE /* ExploreView.swift in Sources */,
 				FF4C5D332ACEBA4A003F3E90 /* RegisterModel.swift in Sources */,
 				FF4731792ACD99A700C4D8BE /* ActivityView.swift in Sources */,
 				FF4C5D382ACEC560003F3E90 /* User.swift in Sources */,
+				FF4C5D6D2AD16F93003F3E90 /* ThreadService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
