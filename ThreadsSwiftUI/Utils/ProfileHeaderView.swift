@@ -37,7 +37,7 @@ struct ProfileHeaderView: View {
             }
             
             Spacer()
-            CircluarProfileImageView(dummyImage: "johnnyfpv", showFollowButton: false)
+            CircluarProfileImageView(user: user)
         }
     }
 }

@@ -42,4 +42,13 @@ final class UserService {
         return users.filter { $0.id != uid } // 自分以外のすべてのユーザーを返却
         
     }
+     
+    @MainActor
+    func updateUserData(withProfileImageUrl imageUrl: String) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        try await Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl": imageUrl])
+        
+        // 正常にuploadが終わったら newImageUrlで 画像更新するようにTriggerさせる
+        self.currentUser?.profileImageUrl = imageUrl
+    }
 }

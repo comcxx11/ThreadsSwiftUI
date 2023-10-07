@@ -9,12 +9,12 @@ import SwiftUI
 import PhotosUI
 
 struct EditProfileView: View {
-    
+    let user: User
     @State private var bio = ""
     @State private var link = ""
     @State private var isPrivateProfile = false
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel: CurrentUserProfileViewModel
+    @StateObject var viewModel: EditProfileViewModel = EditProfileViewModel()
     
     var body: some View {
         NavigationStack {
@@ -25,10 +25,10 @@ struct EditProfileView: View {
                 VStack (spacing: 12){
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("名前")
+                            Text(user.username)
                                 .fontWeight(.semibold)
                             
-                            Text("JohnnyFPV")
+                            Text(user.fullname)
                         }
                         
                         Spacer()
@@ -43,7 +43,7 @@ struct EditProfileView: View {
                                     .frame(width: 40, height: 40)
                                     .clipShape(Circle())
                             } else {
-                                CircluarProfileImageView(showFollowButton: false)
+                                CircluarProfileImageView(user: user)
                             }
                         }
                     }
@@ -95,7 +95,10 @@ struct EditProfileView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("完了") {
-                        
+                        Task {
+                            try await viewModel.updateUserData()
+                            dismiss()
+                        }
                     }
                     .font(.subheadline)
                     .fontWeight(.semibold)
@@ -107,5 +110,5 @@ struct EditProfileView: View {
 }
 
 #Preview {
-    EditProfileView()
+    EditProfileView(user: PreviewProvider.shared.user)
 }

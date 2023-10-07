@@ -15,7 +15,7 @@ struct UserCell: View {
         VStack(spacing: 0) {
             
             HStack(alignment: .top, spacing: 12) {
-                CircluarProfileImageView()
+                CircluarProfileImageView(user: user)
 
                 VStack(alignment: .leading, spacing: 0) {
                     

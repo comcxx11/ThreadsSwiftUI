@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CreateThreadView: View {
-    
-    @State private var caption = ""
+        
     @Environment(\.dismiss) var dismiss
+    @StateObject var viewModel: CreateThreadViewModel = CreateThreadViewModel()
     
     var body: some View {
         
@@ -18,21 +18,21 @@ struct CreateThreadView: View {
             
             VStack {
                 HStack(alignment: .top) {
-                    CircluarProfileImageView(showFollowButton: false)
+                    CircluarProfileImageView(user: viewModel.currentUser)
                     
                     VStack(alignment: .leading, spacing: 4, content: {
-                        Text("Elon Musk")
+                        Text(viewModel.currentUser?.username ?? "")
                             .fontWeight(.semibold)
                         
-                        TextField("スレッドを開始...", text: $caption, axis: .vertical)
+                        TextField("スレッドを開始...", text: $viewModel.caption, axis: .vertical)
                     })
                     
                     Spacer()
                     
                     // X button
-                    if !caption.isEmpty {
+                    if !viewModel.caption.isEmpty {
                         Button {
-                           caption = ""
+                            viewModel.caption = ""
                         } label: {
                             Image(systemName: "xmark")
                                 .resizable()
@@ -64,8 +64,8 @@ struct CreateThreadView: View {
                     Button("投稿する") {
                         
                     }
-                    .opacity(caption.isEmpty ? 0.5 : 1)
-                    .disabled(caption.isEmpty)
+                    .opacity(viewModel.caption.isEmpty ? 0.5 : 1)
+                    .disabled(viewModel.caption.isEmpty)
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(Color(.systemBlue))

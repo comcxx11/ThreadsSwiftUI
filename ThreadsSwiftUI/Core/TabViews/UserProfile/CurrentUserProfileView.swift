@@ -36,7 +36,7 @@ struct CurrentUserProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
+                        AuthService.shared.signout()
                     } label: {
                         Image(systemName: "line.3.horizontal")
                             .foregroundStyle(.black)
@@ -44,8 +44,9 @@ struct CurrentUserProfileView: View {
                 }
             }
             .sheet(isPresented: $viewModel.showEditProfile, content: {
-                EditProfileView()
-                    .environmentObject(self.viewModel)
+                if let user = currentUser {
+                    EditProfileView(user: user)
+                }
             })
         }
     }

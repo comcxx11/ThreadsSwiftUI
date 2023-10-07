@@ -6,33 +6,62 @@
 //
 
 import SwiftUI
+import Kingfisher
+
+enum ProfileImageSize {
+    case xxSmall
+    case xSmall
+    case small
+    case medium
+    case large
+    case xLarge
+    
+    var dimension: CGFloat {
+        switch self {
+        case .xxSmall: 28
+        case .xSmall: 32
+        case .small: 40
+        case .medium: 48
+        case .large: 64
+        case .xLarge: 80
+        }
+    }
+}
 
 struct CircluarProfileImageView: View {
     
-    var dummyImage: String = "elon"
-    var showFollowButton: Bool = true
-    
+    var user: User?
+    var size: ProfileImageSize = .small
+    var showFollowIcon = false
     var body: some View {
         
-        Image(dummyImage)
-            .resizable()
-            .scaledToFill()
-            .frame(width: 40, height: 40)
-            .clipShape(Circle())
-            .overlay(
-                // TODO: 未フォローの場合だけ表示
-                Image(systemName: "plus")
-                    .font(.caption)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .padding(.all, 5)
-                    .background(Color.black)
+        Group {
+            if let profileImageUrl = user?.profileImageUrl {
+                KFImage(URL(string: profileImageUrl))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: size.dimension, height: size.dimension)
                     .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                    .offset(x: 13, y: 13)
-                    .opacity(showFollowButton ? 1: 0)
-                
-            )
+            } else {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .frame(width: size.dimension, height: size.dimension)
+                    .foregroundColor(Color(.systemGray4))
+            }
+        }
+        .overlay(
+            // TODO: 未フォローの場合だけ表示
+            Image(systemName: "plus")
+                .font(.caption)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+                .padding(.all, 5)
+                .background(Color.black)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                .offset(x: 13, y: 13)
+                .opacity(showFollowIcon ? 1: 0)
+        )
     }
 }
 
