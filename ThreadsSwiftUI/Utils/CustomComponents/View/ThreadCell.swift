@@ -31,7 +31,7 @@ struct ThreadCell: View {
                         
                         Spacer(minLength: 0)
                         
-                        Text("1時間")
+                        Text(thread.timestamp.timestampString())
                             .font(.callout)
                             .foregroundStyle(.gray)
                         

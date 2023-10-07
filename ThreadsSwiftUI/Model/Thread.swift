@@ -8,7 +8,7 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Thread: Identifiable, Codable {
+struct Thread: Identifiable, Codable, Hashable {
     @DocumentID var id: String? // Firebase側で自動生成してくれるid
     let ownerUid: String
     let caption: String

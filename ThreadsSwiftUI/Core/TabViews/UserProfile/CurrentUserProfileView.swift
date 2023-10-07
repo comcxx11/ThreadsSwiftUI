@@ -28,7 +28,7 @@ struct CurrentUserProfileView: View {
                     .padding(.horizontal)
                     .padding(.bottom, 20)
                 
-                UserContetntListView()
+                UserContentListView(user: currentUser)
             }
             .navigationDestination(for: User.self, destination: { user in
                 UserProfileView(user: user)

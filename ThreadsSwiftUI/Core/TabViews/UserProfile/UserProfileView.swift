@@ -18,7 +18,7 @@ struct UserProfileView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 20)
             
-            UserContetntListView()
+            UserContentListView(user: user)
         }
         .navigationBarTitleDisplayMode(.inline)
     }

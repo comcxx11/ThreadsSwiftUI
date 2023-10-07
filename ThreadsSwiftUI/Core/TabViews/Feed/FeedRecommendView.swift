@@ -17,16 +17,23 @@ struct FeedRecommendView: View {
 
     var body: some View {
         
-        ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack {
-                ForEach(viewModel.threads) { thread in
-                    ThreadCell(thread: thread)
+        NavigationStack {
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVStack {
+                    ForEach(viewModel.threads) { thread in
+                        ThreadCell(thread: thread)
+                    }
                 }
             }
+            .navigationDestination(for: Thread.self, destination: { thread in
+                UserProfileView(user: thread.user!)
+            })
+            .refreshable {
+                Task { try await viewModel.fetchThreads() }
+            }
         }
-        .refreshable {
-            Task { try await viewModel.fetchThreads() }
-        }
+        
     }
 }
 

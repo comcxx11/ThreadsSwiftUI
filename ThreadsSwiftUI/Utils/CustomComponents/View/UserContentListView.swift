@@ -1,5 +1,5 @@
 //
-//  UserContetntListView.swift
+//  UserContentListView.swift
 //  ThreadsSwiftUI
 //
 //  Created by パクギョンソク on 2023/10/06.
@@ -7,11 +7,15 @@
 
 import SwiftUI
 
-struct UserContetntListView: View {
+struct UserContentListView: View {
     
-    @State private var selectedFilter: ProfileThreadFilter = .threads
+    @StateObject var viewModel: UserContentListViewModel
     @Namespace var animation
     
+    init(user: User?) {
+        _viewModel = .init(wrappedValue: UserContentListViewModel(user: user))
+    }
+
     var body: some View {
         VStack {
             HStack {
@@ -20,21 +24,21 @@ struct UserContetntListView: View {
                         Text(filter.title)
                             .font(.subheadline)
                             .fontWeight(.semibold)
-                            .foregroundStyle(selectedFilter == filter ? .black : .gray)
+                            .foregroundStyle(viewModel.selectedFilter == filter ? .black : .gray)
                         
                         Group {
-                            if selectedFilter == filter {
+                            if viewModel.selectedFilter == filter {
                                 Capsule()
                                     .frame(maxWidth: .infinity)
                                     .frame(height: 1)
                                     .matchedGeometryEffect(id: "PROFILE_FILTER", in: animation)
-                                    .opacity(selectedFilter == filter ? 1 : 0)
+                                    .opacity(viewModel.selectedFilter == filter ? 1 : 0)
                                 
                             } else {
                                 Capsule()
                                     .frame(maxWidth: .infinity)
                                     .frame(height: 1)
-                                    .opacity(selectedFilter == filter ? 1 : 0)
+                                    .opacity(viewModel.selectedFilter == filter ? 1 : 0)
                             }
                         }
                         .padding(.horizontal, 14)
@@ -42,7 +46,7 @@ struct UserContetntListView: View {
                     }
                     .onTapGesture {
                         withAnimation(.spring) {
-                            selectedFilter = filter
+                            viewModel.selectedFilter = filter
                         }
                     }
                 }
@@ -54,8 +58,8 @@ struct UserContetntListView: View {
             
             LazyVStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(1...5, id:\.self) { _ in
-                        ThreadCell(thread: PreviewProvider.shared.thread)
+                    ForEach(viewModel.threads) { thread in
+                        ThreadCell(thread: thread)
                     }
                 }
             }
@@ -64,5 +68,5 @@ struct UserContetntListView: View {
 }
 
 #Preview {
-    UserContetntListView()
+    UserContentListView(user: PreviewProvider.shared.user)
 }
