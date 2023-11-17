@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         // AuthService.userSessionの値を監視しているので
         // 変更タイミングでここのViewが更新される
-        if viewModel.userSession != nil {
+        if $viewModel.userSession != nil {
             MainTabView()
         } else {
             LoginView()
